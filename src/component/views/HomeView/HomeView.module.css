@@ -1,0 +1,13 @@
+.item {
+  list-style: none;
+  text-decoration: none;
+  color: blue;
+  font-size: small;
+}
+
+.item:hover {
+  color: black;
+}
+.itemActive {
+  color: blue;
+}

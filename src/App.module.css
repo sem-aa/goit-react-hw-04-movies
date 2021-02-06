@@ -1,0 +1,63 @@
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #212121;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: wheat;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+ * Стили компонента App
+ */
+
+h2 {
+  margin-left: 20px;
+  margin-top: 0;
+}
+a {
+  text-decoration: none;
+}
+.List {
+  display: flex;
+  padding-left: 10px;
+  color: currentColor;
+  list-style: none;
+}
+
+.Nav {
+  margin-left: 10px;
+  list-style: none;
+  background-color: grey;
+  padding: 5px;
+  border-radius: 4%;
+  cursor: pointer;
+  border: 1px solid grey;
+  color: #212121;
+  text-decoration: none;
+}
+
+.NavActive {
+  color: #fff;
+  border: 1px solid black;
+}

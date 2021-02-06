@@ -1,0 +1,8 @@
+.List {
+  display: flex;
+  margin: 10px;
+}
+
+.img {
+  border-radius: 50%;
+}

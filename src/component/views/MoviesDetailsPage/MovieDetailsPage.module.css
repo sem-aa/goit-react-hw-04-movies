@@ -1,0 +1,17 @@
+.Poster {
+  display: flex;
+  margin-left: 10px;
+}
+
+p {
+  font-size: small;
+  margin: 10px;
+}
+
+.MovieInfo {
+  margin-left: 10px;
+}
+
+.ActiveLink {
+  color: black;
+}

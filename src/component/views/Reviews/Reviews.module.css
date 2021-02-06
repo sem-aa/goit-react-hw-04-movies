@@ -1,0 +1,9 @@
+.list {
+  list-style: none;
+}
+
+.text {
+  font-size: 10px;
+  width: 90%;
+  text-align: justify;
+}
