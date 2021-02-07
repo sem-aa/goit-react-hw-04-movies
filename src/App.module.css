@@ -38,26 +38,3 @@ h2 {
 a {
   text-decoration: none;
 }
-.List {
-  display: flex;
-  padding-left: 10px;
-  color: currentColor;
-  list-style: none;
-}
-
-.Nav {
-  margin-left: 10px;
-  list-style: none;
-  background-color: grey;
-  padding: 5px;
-  border-radius: 4%;
-  cursor: pointer;
-  border: 1px solid grey;
-  color: #212121;
-  text-decoration: none;
-}
-
-.NavActive {
-  color: #fff;
-  border: 1px solid black;
-}

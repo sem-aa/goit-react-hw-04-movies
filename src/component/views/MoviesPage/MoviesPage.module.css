@@ -1,13 +1,7 @@
-.item {
-  list-style: none;
-  text-decoration: none;
-  color: blue;
-  font-size: small;
+.form {
+  margin-left: 20px;
 }
 
-.item:hover {
-  color: black;
-}
-.itemActive {
-  color: blue;
+.input {
+  margin-left: 5px;
 }

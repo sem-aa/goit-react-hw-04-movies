@@ -4,6 +4,8 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
 import s from "./MovieDetailsPage.module.css";
+import routes from "../../../routes";
+import PropTypes from "prop-types";
 
 class MovieDetailsPage extends React.Component {
   state = {
@@ -20,26 +22,35 @@ class MovieDetailsPage extends React.Component {
     this.setState({ ...respone.data });
   }
 
+  handleGoBack = () => {
+    const { location, history } = this.props;
+    history.push(location?.state?.from || routes.movies);
+  };
+
   render() {
     const { poster_path, title, vote_average, overview, genres } = this.state;
     const { url, path } = this.props.match;
+
     return (
       <>
+        <button className={s.button} onClick={this.handleGoBack}>
+          Go back
+        </button>
         <div className={s.Poster}>
           <img
-            width="200"
-            height="300"
+            width="200px"
+            height="300px"
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
           />
           <div className={s.MovieInfo}>
             <h2>{title}</h2>
-            <p>Use Score: {vote_average * 10}%</p>
-            <p>Overview</p>
+            <p>Оценка пользователей: {vote_average * 10}%</p>
+            <p>Описание:</p>
             <p>{overview}</p>
             <ul>
               {" "}
-              Genres
+              Жанр
               {genres.map((item) => (
                 <li key={item.id}>{item.name}</li>
               ))}
@@ -47,14 +58,14 @@ class MovieDetailsPage extends React.Component {
           </div>
         </div>
         <ul>
-          Additional information
+          Дополнительная информация
           <li>
             <NavLink
               className={s.Link}
               activeClassName={s.ActiveLink}
               to={`${url}/cast`}
             >
-              Cast
+              Актеры
             </NavLink>
           </li>
           <li>
@@ -63,7 +74,7 @@ class MovieDetailsPage extends React.Component {
               activeClassName={s.ActiveLink}
               to={`${url}/reviews`}
             >
-              Reviews
+              Отзывы
             </NavLink>
           </li>
           <Switch>
@@ -75,5 +86,14 @@ class MovieDetailsPage extends React.Component {
     );
   }
 }
+
+MovieDetailsPage.propTypes = {
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string,
+  genres: PropTypes.array,
+  vote_average: PropTypes.number,
+  id: PropTypes.number,
+};
 
 export default MovieDetailsPage;

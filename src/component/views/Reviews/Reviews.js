@@ -1,6 +1,7 @@
 import React from "react";
 import { searchReviews } from "../Api/api-service";
 import s from "./Reviews.module.css";
+import PropTypes from "prop-types";
 
 class Reviews extends React.Component {
   state = {
@@ -17,20 +18,24 @@ class Reviews extends React.Component {
       <>
         {this.state.reviews.length > 0 ? (
           <ul className={s.list}>
-            {" "}
+            <h3>Отзывы на этот филь есть только на английском языке</h3>{" "}
             {this.state.reviews.map((review) => (
               <li key={review.id}>
-                <h3>Author: {review.author}</h3>
+                <h3>Автор: {review.author}</h3>
                 <p className={s.text}> {review.content}</p>
               </li>
             ))}
           </ul>
         ) : (
-          <h1> This film has not been reviewed</h1>
+          <h1>На этот фильм нет отзывов</h1>
         )}
       </>
     );
   }
 }
+
+Reviews.propTypes = {
+  reviews: PropTypes.array,
+};
 
 export default Reviews;

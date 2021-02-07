@@ -1,32 +1,30 @@
-import { Route, NavLink, Switch } from "react-router-dom";
-import HomeView from "./component/views/HomeView/HomeView";
-import MoviesPage from "./component/views/MoviesPage/MoviesPage";
-import MovieDetailsPage from "./component/views/MoviesDetailsPage/MovieDetailsPage";
-import NotFoundView from "./component/views/NotFoundView";
+import { Route, Switch } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
 import s from "./App.module.css";
+import routes from "./routes";
+import AppBar from "./AppBar/AppBar";
+
+const HomeView = lazy(() => import("./component/views/HomeView/HomeView"));
+const MovieDetailsPage = lazy(() =>
+  import("./component/views/MoviesDetailsPage/MovieDetailsPage")
+);
+const MoviesPage = lazy(() =>
+  import("./component/views/MoviesPage/MoviesPage")
+);
+const NotFoundView = lazy(() => import("./component/views/NotFoundView"));
 
 function App() {
   return (
     <div className={s.App}>
-      <ul className={s.List}>
-        <li className={s.ListItem}>
-          <NavLink exact className={s.Nav} activeClassName={s.NavActive} to="/">
-            Home
-          </NavLink>
-        </li>
-        <li className={s.ListItem}>
-          <NavLink className={s.Nav} activeClassName={s.NavActive} to="/movies">
-            Movies Page
-          </NavLink>
-        </li>
-      </ul>
-      <Switch>
-        <Route exact path="/" component={HomeView} />
-        <Route path="/movies/:movieId" component={MovieDetailsPage} />
-        <Route path="/movies" component={MoviesPage} />
-
-        <Route component={NotFoundView} />
-      </Switch>
+      <AppBar />
+      <Suspense fallback={<h1>Load page...</h1>}>
+        <Switch>
+          <Route exact path={routes.home} component={HomeView} />
+          <Route path={routes.movieId} component={MovieDetailsPage} />
+          <Route path={routes.movies} component={MoviesPage} />
+          <Route component={NotFoundView} />
+        </Switch>
+      </Suspense>
     </div>
   );
 }

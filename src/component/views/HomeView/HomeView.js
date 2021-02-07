@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { getTrendigMovie } from "../Api/api-service";
-import s from "./HomeView.module.css";
+import MoviesList from "../MoviesList/MoviesList";
+import PropTypes from "prop-types";
 
 class HomeView extends React.Component {
   state = {
@@ -16,23 +16,15 @@ class HomeView extends React.Component {
   render() {
     return (
       <>
-        <h2 className={s.title}>Trends of the week</h2>
-        <ul className={s.item}>
-          {this.state.movies.map((movie) => (
-            <li key={movie.id}>
-              <NavLink
-                className={s.item}
-                activeClassName={s.ItemActive}
-                to={`/movies/${movie.id}`}
-              >
-                {movie.original_title}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <h2>Топ недели</h2>
+        <MoviesList movies={this.state.movies} />
       </>
     );
   }
 }
+
+HomeView.propTypes = {
+  movies: PropTypes.array,
+};
 
 export default HomeView;

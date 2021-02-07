@@ -4,5 +4,12 @@
 }
 
 .img {
-  border-radius: 50%;
+  border-radius: 5%;
+  width: 50 px;
+  height: 100px;
+  justify-content: center;
+}
+
+.info {
+  margin-left: 10px;
 }
