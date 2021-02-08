@@ -18,7 +18,7 @@ class Reviews extends React.Component {
       <>
         {this.state.reviews.length > 0 ? (
           <ul className={s.list}>
-            <h3>Отзывы на этот филь есть только на английском языке</h3>{" "}
+            <h3>Отзывы на этот фильм есть только на английском языке</h3>{" "}
             {this.state.reviews.map((review) => (
               <li key={review.id}>
                 <h3>Автор: {review.author}</h3>
