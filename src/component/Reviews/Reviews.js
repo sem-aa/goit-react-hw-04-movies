@@ -1,5 +1,5 @@
 import React from "react";
-import { searchReviews } from "../Api/api-service";
+import { searchReviews } from "../../Api/api-service";
 import s from "./Reviews.module.css";
 import PropTypes from "prop-types";
 

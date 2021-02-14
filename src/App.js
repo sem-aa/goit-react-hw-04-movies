@@ -4,14 +4,10 @@ import s from "./App.module.css";
 import routes from "./routes";
 import AppBar from "./AppBar/AppBar";
 
-const HomeView = lazy(() => import("./component/views/HomeView/HomeView"));
-const MovieDetailsPage = lazy(() =>
-  import("./component/views/MoviesDetailsPage/MovieDetailsPage")
-);
-const MoviesPage = lazy(() =>
-  import("./component/views/MoviesPage/MoviesPage")
-);
-const NotFoundView = lazy(() => import("./component/views/NotFoundView"));
+const HomeView = lazy(() => import("./views/HomeView"));
+const MovieDetailsPage = lazy(() => import("./views/MovieDetailsPage"));
+const MoviesPage = lazy(() => import("./views/MoviesPage"));
+const NotFoundView = lazy(() => import("./views/NotFoundView"));
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { getTrendigMovie } from "../Api/api-service";
-import MoviesList from "../MoviesList/MoviesList";
+import MoviesList from "../component/MoviesList/MoviesList";
 import PropTypes from "prop-types";
 
 class HomeView extends React.Component {
@@ -17,7 +17,7 @@ class HomeView extends React.Component {
     return (
       <>
         <h2>Топ недели</h2>
-        <MoviesList movies={this.state.movies} />
+        <MoviesList movies={this.state.movies} location={this.props.location} />
       </>
     );
   }
